@@ -9,6 +9,16 @@ You can:
 - Reopen filtered views using saved URL parameters
 
 ---
+## 📸 Screenshots
+
+### Contacts
+![Contacts](screenshots/contacts.png)
+
+### Matters
+![Matters](screenshots/matters.png)
+
+### External Pages
+![External Page](screenshots/external_page.png)
 
 # Installation (Step-by-Step)
 
