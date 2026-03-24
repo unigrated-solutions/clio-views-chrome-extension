@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Clio Table Views</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 12px;
+    }
+
+    h3 {
+      margin: 0 0 10px 0;
+      font-size: 16px;
+    }
+
+    .row {
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      margin: 4px 0;
+      font-size: 13px;
+    }
+
+    input[type="text"],
+    select {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 6px;
+    }
+
+    button {
+      padding: 6px 10px;
+      margin-right: 6px;
+      margin-top: 6px;
+      cursor: pointer;
+    }
+
+    #status {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #2e7d32;
+    }
+
+    #columns {
+      max-height: 260px;
+      overflow-y: auto;
+      border: 1px solid #ccc;
+      padding: 8px;
+    }
+
+    .muted {
+      color: #666;
+      font-size: 12px;
+    }
+
+    .section {
+      border: 1px solid #ddd;
+      padding: 8px;
+      margin-bottom: 10px;
+      background: #fafafa;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .small {
+      font-size: 12px;
+      color: #666;
+      margin-top: 4px;
+    }
+
+    .medium-centered {
+      font-size: 14px;
+      color: #444;
+      margin-top: 6px;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .checkbox-label {
+      display: block;
+      margin: 4px 0;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <h3>Clio Table Views</h3>
+
+  <div class="row">
+    <div id="pageInfo" class="muted">Detecting page...</div>
+  </div>
+
+  <div id="mattersRouteSection" class="section hidden">
+    <strong>Saved from current Matters URL</strong>
+    <div id="mattersRouteSummary" class="medium-centered"></div>
+  </div>
+
+  <div id="contactsRouteSection" class="section hidden">
+    <strong>Saved from current Contacts URL</strong>
+    <div id="contactsRouteSummary" class="medium-centered"></div>
+  </div>
+
+  <div id="editorSection">
+    <div class="row">
+      <input id="viewName" type="text" placeholder="New view name">
+      <button id="saveView">Save Current Selection</button>
+    </div>
+
+    <div id="currentPageViewSection" class="row">
+      <select id="savedViews">
+        <option value="">Select saved view</option>
+      </select>
+      <button id="applyView">Apply</button>
+      <button id="deleteView">Delete</button>
+    </div>
+
+    <div class="row">
+      <strong>Columns</strong>
+      <div id="columns"></div>
+    </div>
+
+    <div class="row">
+      <button id="refreshColumns">Refresh Columns</button>
+    </div>
+  </div>
+
+  <div id="librarySection" class="section hidden">
+    <strong>Saved Views</strong>
+
+    <div class="row" style="margin-top: 8px;">
+      <label for="contactSavedViews"><strong>Contact Views</strong></label>
+      <select id="contactSavedViews">
+        <option value="">Select contact view</option>
+      </select>
+      <button id="applyContactView">Apply Contact View</button>
+    </div>
+
+    <div class="row">
+      <label for="matterSavedViews"><strong>Matter Views</strong></label>
+      <select id="matterSavedViews">
+        <option value="">Select matter view</option>
+      </select>
+      <button id="applyMatterView">Apply Matter View</button>
+    </div>
+
+    <div class="small">
+      Matter views restore their saved Matters route and then apply columns.
+      Contact views restore their saved Contacts route and then apply columns.
+    </div>
+  </div>
+
+  <div id="status"></div>
+
+  <script src="panel.js"></script>
+</body>
+</html>
